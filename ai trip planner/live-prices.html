@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Prices</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles specific to this page */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4CAF50, #2e7d32);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .live-prices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Live Prices</h1>
+        <p>Here are the live prices for your trip</p>
+    </header>
+    
+    <main>
+        <section class="live-prices">
+            <!-- Card 1 -->
+            <div class="card">
+                <h3>Flight Prices</h3>
+                <p><strong>Average Price:</strong> ₹4000</p>
+                <p><strong>Lowest Price:</strong> ₹3500</p>
+                <p><strong>Highest Price:</strong> ₹5000</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <h3>Train Prices</h3>
+                <p><strong>Average Price:</strong> ₹1020</p>
+                <p><strong>Lowest Price:</strong> ₹800</p>
+                <p><strong>Highest Price:</strong> ₹1500</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <h3>Bus Prices</h3>
+                <p><strong>Average Price:</strong> ₹400</p>
+                <p><strong>Lowest Price:</strong> ₹300</p>
+                <p><strong>Highest Price:</strong> ₹600</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="card">
+                <h3>Car Prices</h3>
+                <p><strong>Average Price:</strong> ₹200</p>
+                <p><strong>Lowest Price:</strong> ₹150</p>
+                <p><strong>Highest Price:</strong> ₹300</p>
+            </div>
+        </section>
+
+        <!-- Detailed Table -->
+        <section>
+            <h2>Detailed Price Breakdown</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transport</th>
+                        <th>Price Range</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flight</td>
+                        <td>₹3500 - ₹5000</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Train</td>
+                        <td>₹800 - ₹1500</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Bus</td>
+                        <td>₹300 - ₹600</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Car</td>
+                        <td>₹150 - ₹300</td>
+                        <td>Low</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AI Trip Planner</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

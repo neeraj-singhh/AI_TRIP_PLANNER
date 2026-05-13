@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trip Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <header class="hero-header">
+        <div class="hero-content">
+            <div class="logo-title">
+                <h1>AI Trip Planner</h1>
+                <p>Plan smarter. Travel better. Let AI handle the rest.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="planner-shell">
+            <div class="planner-card">
+                <div class="planner-card-left">
+                    <h2>Plan Your Perfect Trip</h2>
+                    <p class="section-subtitle">
+                        Tell us your preferences and let AI craft your ideal journey.
+                    </p>
+                    <form id="trip-form">
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="departure">Select Departure</label>
+                                <select id="departure" name="departure" required>
+                                    <option value="">Choose departure</option>
+                                    <option value="New Delhi">New Delhi</option>
+                                    <option value="Varanasi">Varanasi</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Haridwar">Haridwar</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Valley Of Flowers">Valley Of Flowers</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="destination">Select a Destination</label>
+                                <select id="destination" name="destination" required>
+                                    <option value="">Choose destination</option>
+                                    <option value="New Delhi">New Delhi</option>
+                                    <option value="Varanasi">Varanasi</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Haridwar">Haridwar</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Valley Of Flowers">Valley Of Flowers</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="trip-category">Select Trip Category</label>
+                                <select id="trip-category" name="trip_category">
+                                    <option value="budget">Budget Friendly</option>
+                                    <option value="friends">Friends</option>
+                                    <option value="family">Family</option>
+                                    <option value="group">Group Travel</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="timeline">Select Timeline</label>
+                                <input type="text" id="timeline" name="timeline" placeholder="Pick your dates & time" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="transport">Select Means of Transport</label>
+                                <select id="transport" name="transport">
+                                    <option value="flight">Flight</option>
+                                    <option value="train">Train</option>
+                                    <option value="bus">Bus</option>
+                                    <option value="car">Car</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="num-people">Number of People</label>
+                                <input type="number" id="num-people" name="num_people" min="1" value="2" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="primary-button">
+                            <span>Plan My Trip</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="planner-card-right">
+                    <h3>Transportation Live Prices</h3>
+                    <p class="section-subtitle" id="route-subtitle">Updated in real time for your selected route.</p>
+                    <div id="price-info" class="price-list">
+                        <div class="price-row price-row-flight">
+                            <div class="price-label">
+                                <span class="price-icon">✈️</span>
+                                <span>Flight</span>
+                            </div>
+                            <span class="price-value">₹4000</span>
+                        </div>
+                        <div class="price-row price-row-train">
+                            <div class="price-label">
+                                <span class="price-icon">🚆</span>
+                                <span>Train</span>
+                            </div>
+                            <span class="price-value">₹1020</span>
+                        </div>
+                        <div class="price-row price-row-bus">
+                            <div class="price-label">
+                                <span class="price-icon">🚌</span>
+                                <span>Bus</span>
+                            </div>
+                            <span class="price-value">₹400</span>
+                        </div>
+                        <div class="price-row price-row-car">
+                            <div class="price-label">
+                                <span class="price-icon">🚗</span>
+                                <span>Car</span>
+                            </div>
+                            <span class="price-value">₹200</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="itinerary" class="itinerary-section">
+                <h2>Your Trip Itinerary</h2>
+                <table id="itinerary-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Activity</th>
+                            <th>Transportation</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itinerary-body">
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="features-row">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-purple">⚙️</div>
+                    <h4>AI Powered</h4>
+                    <p>Smart recommendations tailored just for you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-green">🔒</div>
+                    <h4>Secure &amp; Safe</h4>
+                    <p>Your data is protected and private.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-blue">⏱️</div>
+                    <h4>Save Time</h4>
+                    <p>Plan in minutes, enjoy for days.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-pink">🎯</div>
+                    <h4>Personalized</h4>
+                    <p>Trips tailored to your preferences.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>&copy; 2024 AI Trip Planner. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr("#timeline", {
+                mode: "range",
+                enableTime: true,
+                dateFormat: "Y-m-d H:i",
+                time_24hr: true,
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
